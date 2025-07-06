@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Unlock Account</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Unlock Your Account</h2>
+        <form method="POST">
+            <label>Email:</label><input type="email" name="email" required>
+            <button type="submit">Send OTP</button>
+        </form>
+        <div class="notification">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

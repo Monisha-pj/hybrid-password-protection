@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Bank Home Page</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Your Bank Account</h2>
+        <p>Your account details:</p>
+        <ul>
+            <li><strong>Username:</strong> {{ user.username }}</li>
+            <li><strong>Email:</strong> {{ user.email }}</li>
+            <li><strong>Last login:</strong> {{ user.last_login }}</li>
+        </ul>
+        <a href="{{ url_for('update_password') }}">Change Password</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <form method="POST" action="{{ url_for('delete_account') }}">
+            <button type="submit">Delete My Account</button>
+        </form>
+    </div>
+</body>
+</html>
